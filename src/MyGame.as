@@ -1,6 +1,6 @@
 package  
 {
-	import com.openmmo.client.IsoGame;
+	import com.openmmo.client.Game;
 	
 	/**
 	 * 
@@ -9,12 +9,12 @@ package
 	 * Alan Gardner
 	 * <Add your name here>
 	 */
-	public class MyGame extends IsoGame
+	public class MyGame extends Game
 	{
 		
 		public function MyGame() 
 		{
-			
+			super(Game.ISOMETRIC);
 		}
 		
 	}

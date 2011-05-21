@@ -12,8 +12,8 @@ package com.openmmo.client
 	public class Game extends Sprite 
 	{
 		public static const ISOMETRIC:String = "iso";
-		public static const SIDE_VIEW:String = "iso";
-		public static const TOP_DOWN:String = "iso";
+		public static const SIDE_VIEW:String = "side";
+		public static const TOP_DOWN:String = "top";
 		
 		private var _perspective:String = null;
 		

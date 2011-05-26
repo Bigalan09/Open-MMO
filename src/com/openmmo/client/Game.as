@@ -17,6 +17,7 @@
 */
 package com.openmmo.client 
 {
+	import com.openmmo.client.entity.Entity;
 	import flash.display.Sprite;
 	
 	/**
@@ -33,10 +34,33 @@ package com.openmmo.client
 		public static const TOP_DOWN:String = "top";
 		
 		private var _perspective:String = null;
+		private var _width:int = 0;
+		private var _height:int = 0;
+		private var _world:World = null;
 		
-		public function Game(perspective:String) 
+		public function Game(perspective:String, width:int = 800, height:int = 600, world:World = null) 
 		{
 			this._perspective = perspective;
+			this._width = width;
+			this._height = height;
+			
+			if (world == null) {
+				this._world = new World(this);
+			}
+			else
+			{
+				this._world = world;
+			}
+		}
+		
+		public function get perspective():String 
+		{
+			return _perspective;
+		}
+		
+		public function addEntity(ent:Entity):void 
+		{
+			this._world.addEntity(ent);
 		}
 		
 	}

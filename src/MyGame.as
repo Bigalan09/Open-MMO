@@ -32,6 +32,9 @@ package
 		public function MyGame() 
 		{
 			super(Game.ISOMETRIC);
+			
+			var player:Player = new Player();
+			addEntity(player);
 		}
 		
 	}

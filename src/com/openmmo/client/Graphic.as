@@ -30,6 +30,7 @@ package com.openmmo.client
 	public class Graphic 
 	{
 		private var _source:BitmapData = null;
+		private var _bitmap:Bitmap = null;
 		private var _class:String;
 		private var _x:int;
 		private var _y:int;
@@ -42,7 +43,9 @@ package com.openmmo.client
 				_class = String(source);
 			}
 			else if (source is BitmapData) _source = source;
-			if (!_source) throw new Error("Invalid source image.");
+			if (!_source) {
+				throw new Error("Invalid source image.");
+			} else _bitmap = new Bitmap(_source);
 		}
 		
 		public function get source():BitmapData 
@@ -53,6 +56,7 @@ package com.openmmo.client
 		public function set source(value:BitmapData):void 
 		{
 			_source = value;
+			_bitmap = new Bitmap(_source);
 		}
 		
 		public function get x():int 
@@ -81,6 +85,16 @@ package com.openmmo.client
 			temp.x = _x;
 			temp.y = _y;
 			_source = temp.bitmapData;
+		}
+		
+		public function get bitmap():Bitmap 
+		{
+			return _bitmap;
+		}
+		
+		public function set bitmap(value:Bitmap):void 
+		{
+			_bitmap = value;
 		}
 		
 	}

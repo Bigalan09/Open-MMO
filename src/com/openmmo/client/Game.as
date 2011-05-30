@@ -19,6 +19,7 @@ package com.openmmo.client
 {
 	import com.openmmo.client.entity.Entity;
 	import flash.display.Sprite;
+	import flash.events.Event;
 	
 	/**
 	 * 
@@ -51,6 +52,13 @@ package com.openmmo.client
 			{
 				this._world = world;
 			}
+			addEventListener(Event.ENTER_FRAME, update);
+		}
+		
+		private function update(e:Event):void 
+		{
+			this._world.update();
+			this._world.render();
 		}
 		
 		public function get perspective():String 

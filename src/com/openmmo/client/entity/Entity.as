@@ -17,8 +17,12 @@
 */
 package com.openmmo.client.entity 
 {
+	import com.openmmo.client.Graphic;
 	import com.openmmo.client.util.Position;
 	import com.openmmo.client.World;
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.display.Sprite;
 	/**
 	 * 
 	 * 
@@ -26,13 +30,19 @@ package com.openmmo.client.entity
 	 * Alan Gardner
 	 * <Add your name here>
 	 */
-	public class Entity 
+	public class Entity
 	{
 		private var _id:String = "";
-		private var _position:Position = null;
+		private var _position:Position = new Position(0, 0, 0, 0);
 		private var _world:World = null;
+		private var _graphic:Graphic = null;
 		
 		public function Entity() 
+		{
+			
+		}
+		
+		public function update():void 
 		{
 			
 		}
@@ -85,16 +95,29 @@ package com.openmmo.client.entity
 		public function set x(value:int):void
 		{
 			this._position.x = value;
+			if (this._graphic) this.graphic.x = value;
 		}
 		
 		public function set y(value:int):void
 		{
 			this._position.y = value;
+			if (this._graphic) this.graphic.y = value;
 		}
 		
 		public function set z(value:int):void 
 		{
 			this._position.z = value;
+		}
+		
+		public function get graphic():Graphic 
+		{
+			return _graphic;
+		}
+		
+		public function set graphic(value:Graphic):void 
+		{
+			if (_graphic == value) return;
+			_graphic = value;
 		}
 		
 	}

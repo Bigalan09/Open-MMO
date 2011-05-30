@@ -33,8 +33,7 @@ package
 		{
 			super(Game.ISOMETRIC);
 			
-			var player:Player = new Player();
-			addEntity(player);
+			addEntity(new Player);
 		}
 		
 	}

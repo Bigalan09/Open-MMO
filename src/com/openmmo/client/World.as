@@ -19,6 +19,7 @@ package com.openmmo.client
 {
 	import com.openmmo.client.entity.Entity;
 	import com.openmmo.client.util.Position;
+	import flash.display.Bitmap;
 	/**
 	 * 
 	 * 
@@ -94,6 +95,29 @@ package com.openmmo.client
 		public function getEntityAtPos(position:Position):Entity
 		{
 			return getEntityAt(position.x, position.y, position.z);
+		}
+		
+		public function render():void 
+		{
+			while (_game.numChildren > 0)
+			{
+				_game.removeChildAt(_game.numChildren - 1);
+			}
+			for (var i:int = 0; i < this._entities.length; i++)
+			{
+				var temp:Bitmap = new Bitmap(this._entities[i].graphic.source);
+				temp.x = this._entities[i].x;
+				temp.y = this._entities[i].y;
+				_game.addChildAt(temp, i);
+			}
+		}
+		
+		public function update():void 
+		{
+			for (var i:int = 0; i < this._entities.length; i++)
+			{
+				this._entities[i].update();
+			}
 		}
 		
 	}

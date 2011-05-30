@@ -53,6 +53,7 @@ package com.openmmo.client
 			{
 				this._entities.push(ent);
 				ent.world = this;
+				if (ent.graphic) this._game.addChild(ent.graphic.bitmap);
 			}
 		}
 		
@@ -99,16 +100,11 @@ package com.openmmo.client
 		
 		public function render():void 
 		{
-			while (_game.numChildren > 0)
-			{
-				_game.removeChildAt(_game.numChildren - 1);
-			}
 			for (var i:int = 0; i < this._entities.length; i++)
 			{
-				var temp:Bitmap = new Bitmap(this._entities[i].graphic.source);
+				var temp:Bitmap = this._entities[i].graphic.bitmap;
 				temp.x = this._entities[i].x;
 				temp.y = this._entities[i].y;
-				_game.addChildAt(temp, i);
 			}
 		}
 		

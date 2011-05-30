@@ -31,7 +31,7 @@ package
 		
 		public function Client() 
 		{
-			addChild(new MyGame());
+			addChild(new MyGame);
 		}
 		
 	}

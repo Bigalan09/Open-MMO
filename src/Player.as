@@ -18,6 +18,7 @@
 package  
 {
 	import com.openmmo.client.entity.Entity;
+	import com.openmmo.client.Graphic;
 	/**
 	 * 
 	 * 
@@ -27,12 +28,18 @@ package
 	 */
 	public class Player extends Entity
 	{
+		[Embed(source = '../bin/images/circle.png')] private var CIRCLE:Class;
 		
 		public function Player() 
 		{
-			
+			this.graphic = new Graphic(CIRCLE);
 		}
 		
+		override public function update():void 
+		{
+			this.x = (Math.random() * 700) + 50;
+			this.y = (Math.random() * 500) + 50;
+		}
 	}
 
 }

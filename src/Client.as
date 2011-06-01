@@ -31,6 +31,7 @@ package
 		
 		public function Client() 
 		{
+			stage.scaleMode = "noScale";
 			addChild(new MyGame);
 		}
 		

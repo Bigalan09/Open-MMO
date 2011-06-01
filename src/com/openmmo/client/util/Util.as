@@ -17,7 +17,11 @@
 */
 package com.openmmo.client.util 
 {
+	import com.openmmo.client.Graphic;
+	import flash.display.Bitmap;
 	import flash.display.BitmapData;
+	import flash.display.Graphics;
+	import flash.display.Sprite;
 	/**
 	 * 
 	 * 
@@ -39,6 +43,27 @@ package com.openmmo.client.util
 		{
 			if (_bitmap[String(source)]) return _bitmap[String(source)];
 			return (_bitmap[String(source)] = (new source).bitmapData);
+		}
+		
+		static public function spriteToBitmapData(sprite:Sprite):BitmapData
+		{
+			var b:BitmapData = new BitmapData(sprite.width, sprite.height, true, 0x0);
+			b.draw(sprite);
+			if (_bitmap[String(sprite)]) return _bitmap[String(sprite)];
+			return (_bitmap[String(sprite)] = b);
+		}
+		
+		static public function createBox(x:int, y:int, width:int, height:int, colour:uint = 0x333333, alpha:uint = 1):Sprite
+		{
+			var temp:Sprite = new Sprite();
+			var gr:Graphics = temp.graphics;
+			
+			gr.lineStyle(1);
+			gr.beginFill(colour, alpha);
+			gr.drawRect(x, y, width, height);
+			gr.endFill();
+			
+			return temp;
 		}
 		
 	}

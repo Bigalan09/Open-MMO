@@ -18,6 +18,7 @@
 package com.openmmo.client 
 {
 	import com.openmmo.client.entity.Entity;
+	import com.openmmo.client.entity.Map;
 	import com.openmmo.client.util.Position;
 	import flash.display.Bitmap;
 	/**
@@ -53,6 +54,8 @@ package com.openmmo.client
 			{
 				this._entities.push(ent);
 				ent.world = this;
+				
+				if (ent.type == "map") (ent as Map).mapType = this._game.perspective;
 				if (ent.graphic) this._game.addChild(ent.graphic.bitmap);
 			}
 		}

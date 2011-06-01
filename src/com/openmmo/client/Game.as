@@ -18,6 +18,7 @@
 package com.openmmo.client 
 {
 	import com.openmmo.client.entity.Entity;
+	import com.openmmo.client.util.Util;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
@@ -30,9 +31,9 @@ package com.openmmo.client
 	 */
 	public class Game extends Sprite 
 	{
-		public static const ISOMETRIC:String = "iso";
-		public static const SIDE_VIEW:String = "side";
-		public static const TOP_DOWN:String = "top";
+		public static const ISO_DIAMOND:String = "iso_diamond";
+		public static const ISO_STAGGERED:String = "iso_staggered";
+		public static const NONE:String = "none";
 		
 		private var _perspective:String = null;
 		private var _width:int = 0;
@@ -52,6 +53,8 @@ package com.openmmo.client
 			{
 				this._world = world;
 			}
+			
+			addChild(Util.createBox(0, 0, width, height));
 			addEventListener(Event.ENTER_FRAME, update);
 		}
 		
@@ -66,7 +69,7 @@ package com.openmmo.client
 			return _perspective;
 		}
 		
-		public function addEntity(ent:Entity):void 
+		public function add(ent:Entity):void 
 		{
 			this._world.addEntity(ent);
 		}

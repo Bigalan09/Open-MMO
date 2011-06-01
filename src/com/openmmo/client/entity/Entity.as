@@ -36,6 +36,7 @@ package com.openmmo.client.entity
 		private var _position:Position = new Position(0, 0, 0, 0);
 		private var _world:World = null;
 		private var _graphic:Graphic = null;
+		private var _type:String = null;
 		
 		public function Entity() 
 		{
@@ -118,6 +119,16 @@ package com.openmmo.client.entity
 		{
 			if (_graphic == value) return;
 			_graphic = value;
+		}
+		
+		public function get type():String 
+		{
+			return _type;
+		}
+		
+		public function set type(value:String):void 
+		{
+			_type = value;
 		}
 		
 	}

@@ -17,6 +17,7 @@
 */
 package  
 {
+	import com.openmmo.client.entity.Map;
 	import com.openmmo.client.Game;
 	
 	/**
@@ -31,9 +32,9 @@ package
 		
 		public function MyGame() 
 		{
-			super(Game.ISOMETRIC);
-			
-			addEntity(new Player);
+			super(Game.ISO_STAGGERED);
+			add(new Map());
+			add(new Player);
 		}
 		
 	}
